@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>PDF Flip Viewer</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- AJAX -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+  <!-- costume css -->
+  <link rel="stylesheet" type="text/css" href="css/flipbook.style.css" />
+  <!-- Bootstrap Css -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+
+  <!-- Include JS -->
+  <script src="js/flipbook.min.js"></script>
+
+</head>
+
+
+  <script type="text/javascript">
+    let params = new URL(document.location).searchParams;
+    let url = params.get('url');
+    $(document).ready(function () {
+      $("*").flipBook({
+        //Layout Setting
+        pdfUrl: url,
+        lightBox: false,
+        lightBoxOpened:true,
+        layout:5,
+
+        // BTN SETTING
+        btnShare: { enabled: false },
+        btnDownload: {hide:true },
+        btnPrint: {
+          enabled: false,
+          hideOnMobile: true,
+        },
+        btnDownloadPages: {
+          enabled: false,
+          title: 'Download pages',
+          icon: 'fa-download',
+          icon2: 'file_download',
+          url: url,
+          name: 'allPages.zip',
+          hideOnMobile: false,
+        },
+        btnColor: '#6c5dd3',
+        sideBtnColor: '#6c5dd3',
+        sideBtnSize: 50,
+        sideBtnBackground: 'rgba(0,0,0,.7)',
+      })
+    });
+  </script>
+<body >
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+    integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+    integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
